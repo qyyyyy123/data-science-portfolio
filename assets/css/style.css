@@ -219,3 +219,27 @@ footer.site a { color: var(--muted); }
   body { background: #fff; font-size: 11pt; }
   section { page-break-inside: avoid; }
 }
+
+/* ---------- accessibility ---------- */
+
+/* Keyboard users need to see where they are; the rounded corners otherwise hide
+   the default focus ring on buttons and links. */
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Never animate for someone who asked the system not to. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* A horizontally scrolling table should still announce focus. */
+.table-wrap:focus-within { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+
+/* The status pill is the only place colour carries meaning, so it also carries a
+   border and the word itself: no colour-only signal. */
+.status { border: 1px solid currentColor; }
