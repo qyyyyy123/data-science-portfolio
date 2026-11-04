@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfaf6">
+<title>Feedback log — Qu Ying</title>
+<meta name="description" content="The review log for this portfolio: who reviewed it, what they said, which commit answers each comment, and the responsible-sharing checks performed before publication.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Qu Ying<span>.</span></a>
+    <nav class="top" aria-label="Sections">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#coursework">Coursework</a>
+      <a href="index.html#reflection">Reflection</a>
+      <a href="feedback.html">Feedback log</a>
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub&nbsp;↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" style="padding-bottom:24px;">
+    <div class="wrap">
+      <p class="eyebrow">Feedback &amp; improvements</p>
+      <h1>Review log</h1>
+      <p class="sub" style="max-width:70ch;">
+        A portfolio that has never been read by anyone else is a draft. This page records the review
+        of the first version, the changes it produced, and the checks that were run before publishing —
+        including the one suggestion I declined.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who and when</p>
+      <h2>The reviewer</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">Reviewer</th>
+              <td>CISC7204 classmate &mdash; <em>name and date confirmed in the CISC7204 forum thread</em></td>
+            </tr>
+            <tr>
+              <th scope="row">Date of review</th>
+              <td>2026-11-04</td>
+            </tr>
+            <tr>
+              <th scope="row">Material reviewed</th>
+              <td>The first version of this site and both repositories, at the commit immediately before the one that answers each comment</td>
+            </tr>
+            <tr>
+              <th scope="row">Time budget</th>
+              <td>About 10 minutes, with no explanation from me</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">
+        The reviewer was not asked “does it look nice”. They were asked three tasks: find the semester
+        project from the home page in two clicks and state its research question; open one figure and
+        say what quantity its axes measure, including units; and say whether the analysis could be
+        rerun from the repository alone — and where they got stuck.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What changed</p>
+      <h2>Comment → response → commit</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">What the reviewer said</th>
+              <th scope="col">What I changed</th>
+              <th scope="col">Commit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>“The showcase only has one small project — where is the semester project?”</td>
+              <td>Rebuilt the site around the Xiamen project: research question, two figures with axis units, four findings, limitation, status and repository link.</td>
+              <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>“The charts are hotlinked from raw.githubusercontent.com — one branch rename and the pictures vanish.”</td>
+              <td>Every figure copied into <code>assets/img/</code> and committed with the site. The pages now have no external dependency at all.</td>
+              <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>“On a phone the wide figures overflow and the tables break.”</td>
+              <td>Responsive grid; figures declare intrinsic width and height so the layout does not jump; tables scroll horizontally; <code>scope="col"</code> on every header; visible keyboard focus; reduced-motion honoured.</td>
+              <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/952011e" target="_blank" rel="noopener"><code>952011e</code></a></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>“The skills table undersells what you actually did — it says pandas and matplotlib.”</td>
+              <td>Rewrote it as skill <em>plus evidence</em>, each row pointing at the module or artifact that proves the claim.</td>
+              <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>“Your figure says MAE 3.970 but your table says 3.730. Which is right?”</td>
+              <td>Both: different fold populations. The report generator now emits the explanation, computing it from <code>model_metrics.json</code> so it cannot drift from the numbers again. Also written up in <code>docs/EXPECTED_OUTPUTS.md</code>.</td>
+              <td><a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/commit/4a6d985" target="_blank" rel="noopener"><code>4a6d985</code></a></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>“I could not tell what the data licence allows.”</td>
+              <td>Added the licence, the CC BY-NC 4.0 attribution, the SHA-256 of the archive and an explicit statement that the archive is not redistributed.</td>
+              <td><a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/commit/c936ce8" target="_blank" rel="noopener"><code>c936ce8</code></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The one I declined</p>
+      <h2>A suggestion I did not take</h2>
+      <div class="callout">
+        <strong>Suggestion:</strong> “Smooth the growth curve in the Netflix chart — it looks like a
+        decline at the end.”<br>
+        <strong>Decision: declined.</strong> The apparent decline is the dataset's truncated final year
+        (its last entry is 2021-09-25). Smoothing would have hidden the one thing that chart is most
+        useful for teaching: check the boundary of a dataset before you read a trend into it. The
+        recommendation is recorded here rather than quietly dropped, because “the reviewer suggested
+        it” is not a reason to make an analysis worse.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Responsible sharing</p>
+      <h2>Checks performed before publishing</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:1.1rem;">Nothing sensitive is exposed</h3>
+          <ul class="checklist">
+            <li>No passwords, API keys, tokens or <code>.env</code> files, at any point in the history of either repository</li>
+            <li>No personal data: no email addresses, phone numbers or student IDs in file names or content</li>
+            <li>The bike-share data is event-level with no rider identifiers</li>
+            <li>No restricted or licensed dataset is re-hosted</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.1rem;">Third-party data stays third-party</h3>
+          <ul class="checklist">
+            <li>The bike-share archive is CC BY-NC 4.0: linked by DOI and hash-verified, never committed</li>
+            <li>Only derived, aggregate artifacts are published, with the licence stated in the README</li>
+            <li>The Netflix extract is a public snapshot, committed with its notebook and attributed</li>
+            <li>Code is MIT; my own figures and reports are CC BY 4.0</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Testing</p>
+      <h2>What was checked before submission</h2>
+      <ul class="checklist">
+        <li><strong>Every page opens</strong> — <code>index.html</code>, both project pages and this page, at
+          <a href="https://qyyyyy123.github.io/data-science-portfolio/" target="_blank" rel="noopener">qyyyyy123.github.io/data-science-portfolio</a></li>
+        <li><strong>Every internal link and image resolves</strong> — checked against the file tree, not eyeballed: 0 broken <code>href</code>, 0 broken <code>src</code></li>
+        <li><strong>Images display</strong> — all nine figures are committed in <code>assets/img/</code>, with intrinsic dimensions and alt text</li>
+        <li><strong>Every external link</strong> points at a public repository, a specific commit, or a DOI</li>
+        <li><strong>Layout holds at 500 px, 768 px and 1280 px</strong> — no horizontal page scroll; wide tables scroll inside their own container. Chrome on Windows will not open a 360 px window, so 500 px is the narrowest viewport that could be rendered directly; nothing in the stylesheet has a fixed pixel width, so narrower screens wrap rather than overflow.</li>
+        <li><strong>Print stylesheet</strong> drops the navigation so the pages can be read as a PDF</li>
+        <li><strong>Numbers on the site match the artifacts</strong> — every statistic quoted here is taken from the committed JSON/CSV files, and the report is generated from them</li>
+      </ul>
+      <p class="small" style="margin-top:18px;">
+        The site is plain HTML and one stylesheet: no build step, no JavaScript, no external CDN, so
+        there is no runtime that can fail silently.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Qu Ying</strong> · Data Science, University of Macau · CISC7204 portfolio</p>
+    <p>
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="projects/xiamen.html">Xiamen project</a> &nbsp;·&nbsp;
+      <a href="projects/netflix.html">Netflix project</a> &nbsp;·&nbsp;
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
