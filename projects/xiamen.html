@@ -143,7 +143,9 @@
              alt="Histogram and empirical CDF of the measured detour factor omega over 29,668 rides, compared with the borrowed constant 1.529."
              width="1875" height="690" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 1 — the detour factor is a distribution.</b> Measured on 29,668 rides:
+          <b>Figure 1 — the detour factor is a distribution.</b> Left panel: x-axis = ω (path length ÷
+          straight-line distance, unitless), y-axis = number of rides. Right panel: x-axis = ω
+          (unitless), y-axis = cumulative share of rides (0–1). Measured on 29,668 rides:
           mean <strong>1.493</strong> (95 % bootstrap CI 1.4868–1.5000), median <strong>1.299</strong>,
           95th percentile 2.82. <strong>73.5 % of rides sit below the borrowed 1.529.</strong>
         </figcaption>
@@ -172,9 +174,11 @@
              alt="City-wide map of Xiamen fences coloured by morning tidal index, red for net sources and blue for net sinks, point size proportional to total flow."
              width="1290" height="1110" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 2 — a two-sided tide.</b> 2,905 fences with total flow ≥ 20; red = net source,
-          blue = net sink, size ∝ √(total flow). Moran's I = <strong>0.123</strong> (expectation
-          −0.0003, z = 37.7, 999 permutations, p = 0.001): the imbalance clusters at street scale.
+          <b>Figure 2 — a two-sided tide.</b> x-axis = longitude (degrees), y-axis = latitude
+          (degrees), colour = tidal index (unitless, −1 to +1), point size ∝ √(total flow in
+          movements). 2,905 fences with total flow ≥ 20; red = net source, blue = net sink. Moran's
+          I = <strong>0.123</strong> (expectation −0.0003, z = 37.7, 999 permutations, p = 0.001):
+          the imbalance clusters at street scale.
         </figcaption>
       </figure>
 
@@ -183,10 +187,12 @@
              alt="Two by four panel showing the tidal index across eight consecutive thirty-minute slots from 06:00 to 10:00, with sources in red and sinks in blue."
              width="2400" height="1140" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 3 — the morning tilt reverses.</b> Eight 30-minute slots. The share of net-source
-          fences falls from 47.8 % at 06:00–06:30 to 37.5 % at 08:00–08:30, the slot where net sinks
-          peak — the moment residential outflow has been absorbed by office and metro-adjacent
-          inflow.
+          <b>Figure 3 — the morning tilt reverses.</b> Eight 30-minute slots, one panel each. In every
+          panel: x-axis = longitude (degrees), y-axis = latitude (degrees), colour = tidal index
+          (unitless, −1 to +1; red = net source, blue = net sink); the panel title gives the slot and
+          the number of fences with at least five movements. The share of net-source fences falls
+          from 47.8 % at 06:00–06:30 to 37.5 % at 08:00–08:30, the slot where net sinks peak — the
+          moment residential outflow has been absorbed by office and metro-adjacent inflow.
         </figcaption>
       </figure>
 
@@ -195,10 +201,12 @@
              alt="Two maps comparing Louvain communities built on the origin-destination flow graph with a paper-style affinity clustering."
              width="2250" height="1020" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 4 — flow direction beats demand similarity.</b> At the same granularity (7
-          groups): modularity <strong>0.716 vs 0.642</strong>, mean absolute within-community
-          net-flow imbalance <strong>0.0225 vs 0.0871</strong> (3.9× better), silhouette a tie
-          (0.298 vs 0.300).
+          <b>Figure 4 — flow direction beats demand similarity.</b> Both panels: x-axis = longitude
+          (degrees), y-axis = latitude (degrees), colour = community label; the legend gives the fence
+          count per community. Left = Louvain on the symmetrised OD flow graph (ours), right = the
+          reproduced paper-style affinity + K-Means++ baseline. At the same granularity (7 groups):
+          modularity <strong>0.716 vs 0.642</strong>, mean absolute within-community net-flow
+          imbalance <strong>0.0225 vs 0.0871</strong> (3.9× better), silhouette a tie (0.298 vs 0.300).
         </figcaption>
       </figure>
 
@@ -207,10 +215,12 @@
              alt="Two scatter panels of predicted versus actual pickups per 30 minutes: out-of-fold predictions on training days and predictions on a held-out future day."
              width="1800" height="750" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 5 — honest validation is humbling.</b> Left: pooled out-of-fold predictions on
-          the four training days (MAE 3.970, R² 0.366, r 0.621). Right: the held-out future morning
-          (MAE 2.734, R² 0.704, r 0.849). Pooling <em>all five</em> folds gives MAE 3.730 / R² 0.430 —
-          the different populations are documented so neither number is quoted out of context.
+          <b>Figure 5 — honest validation is humbling.</b> Both panels: x-axis = actual pickups per
+          30 minutes (count), y-axis = predicted pickups per 30 minutes (count), dashed line = perfect
+          prediction. Left: pooled out-of-fold predictions on the four training days (MAE 3.970,
+          R² 0.366, r 0.621). Right: the held-out future morning (MAE 2.734, R² 0.704, r 0.849).
+          Pooling <em>all five</em> folds gives MAE 3.730 / R² 0.430 — the different populations are
+          documented so neither number is quoted out of context.
         </figcaption>
       </figure>
 
@@ -219,7 +229,9 @@
              alt="Bar chart of permutation importance: increase in mean absolute error when each feature is shuffled, dominated by the historical mean and the previous slot of the same day."
              width="1200" height="750" loading="lazy" decoding="async">
         <figcaption>
-          <b>Figure 6 — history dominates.</b> Permutation importance on the held-out day:
+          <b>Figure 6 — history dominates.</b> x-axis = increase in mean absolute error when the
+          feature is shuffled (pickups per 30 minutes), y-axis = feature, bars = mean over repeats with
+          one standard deviation. Permutation importance on the held-out day:
           <code>hist_mean</code> +3.12 MAE, <code>lag1_same_day</code> +0.97, time-of-day ≈ +0.14,
           community +0.05. The weather controls contribute almost nothing — expected with five days
           and a single rainy day.
