@@ -369,42 +369,48 @@
   <section id="feedback">
     <div class="wrap">
       <p class="eyebrow">06 — Feedback &amp; improvements</p>
-      <h2>What a reviewer changed, and what I did about it</h2>
+      <h2>What a classmate changed</h2>
       <p class="lede">
-        A review of the first version of this portfolio raised six issues. Five of them are summarised
-        here; the full record — every comment, the commit that answers it, and the one suggestion I
-        declined — is on the feedback log page.
+        LIUZIXUAN (CISC7204) opened the published site cold and was given three tasks: find the semester
+        project and state its question, read the axes and units off a figure, and say whether the
+        analysis could be rerun from the repository alone. All three passed — and the second one
+        exposed that only two of my six figure captions actually stated their axes.
       </p>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th scope="col">Review comment</th><th scope="col">What I changed</th></tr>
+            <tr><th scope="col">Task</th><th scope="col">Her answer</th><th scope="col">Outcome</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>“The showcase only has one small project — where is the semester project?”</td>
-              <td>Rebuilt the site around the Xiamen project: research question, two figures, four findings, limitation and status.</td>
+              <td>Find the project, state its research question</td>
+              <td>“I can find the semester project, and I can tell what the research question is.”</td>
+              <td>Passed</td>
             </tr>
             <tr>
-              <td>“The charts are hotlinked from raw.githubusercontent — one branch rename and the pictures vanish.”</td>
-              <td>Moved every image into <code>assets/img/</code> and committed it with the site.</td>
+              <td>Read a figure's axes and units</td>
+              <td>“The axes are longitude and latitude, and the unit is degrees.”</td>
+              <td>Passed — but only 2 of 6 captions stated their axes</td>
             </tr>
             <tr>
-              <td>“On a phone the wide figures overflow and the tables break.”</td>
-              <td>Responsive layout, fluid images with intrinsic dimensions, horizontally scrollable tables, and alt text on every figure.</td>
-            </tr>
-            <tr>
-              <td>“The skills table undersells what you actually did.”</td>
-              <td>Rewrote it as skills <em>plus evidence</em>, pointing at the module that proves each claim.</td>
-            </tr>
-            <tr>
-              <td>“I cannot tell whether the figure number and the report table contradict each other.”</td>
-              <td>Documented the 3.970 vs 3.730 difference in <code>docs/EXPECTED_OUTPUTS.md</code>: different fold populations, both correct.</td>
+              <td>Rerun the analysis from the repository</td>
+              <td>“It all runs.”</td>
+              <td>Passed</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p><a href="feedback.html">Feedback log — reviewer, comment, response, commit hash →</a></p>
+      <p>
+        <strong>What I changed:</strong> every figure caption on the project page now names its x-axis,
+        its y-axis and the unit of each — committed as
+        <a href="https://github.com/qyyyyy123/data-science-portfolio/commit/0301033" target="_blank" rel="noopener"><code>0301033</code></a>.
+        No number changed.
+      </p>
+      <p class="small">
+        The seven fixes I made during <em>self</em>-review, before anyone else saw the site, are recorded
+        separately on the feedback log so they are not credited to the peer review.
+      </p>
+      <p><a href="feedback.html">Feedback log — reviewer, comments, responses, commit hashes →</a></p>
     </div>
   </section>
 

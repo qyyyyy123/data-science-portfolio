@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fbfaf6">
 <title>Feedback log — Qu Ying</title>
-<meta name="description" content="The review log for this portfolio: who reviewed it, what they said, which commit answers each comment, and the responsible-sharing checks performed before publication.">
+<meta name="description" content="The review log for this portfolio: a CISC7204 classmate's three checks, the improvement they produced, the earlier self-review, and the responsible-sharing checks performed before publication.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -32,121 +32,197 @@
       <p class="eyebrow">Feedback &amp; improvements</p>
       <h1>Review log</h1>
       <p class="sub" style="max-width:70ch;">
-        A portfolio that has never been read by anyone else is a draft. This page records the review
-        of the first version, the changes it produced, and the checks that were run before publishing —
-        including the one suggestion I declined.
+        A portfolio that has never been read by anyone else is a draft. This page separates two things
+        that are easy to blur: the review a <strong>classmate</strong> performed, and the self-review I
+        had already done against the marking rubric. Only the first is peer feedback.
       </p>
     </div>
   </section>
 
+  <!-- ============================ PEER REVIEW: WHO ============================ -->
   <section>
     <div class="wrap">
-      <p class="eyebrow">Who and when</p>
-      <h2>The reviewer</h2>
+      <p class="eyebrow">Peer review · 1 of 2</p>
+      <h2>Who reviewed it, and what she was asked to do</h2>
       <div class="table-wrap">
         <table>
           <tbody>
             <tr>
               <th scope="row">Reviewer</th>
-              <td>CISC7204 classmate &mdash; <em>name and date confirmed in the CISC7204 forum thread</em></td>
+              <td><strong>LIUZIXUAN</strong>, CISC7204 classmate</td>
             </tr>
             <tr>
-              <th scope="row">Date of review</th>
-              <td>2026-11-04</td>
+              <th scope="row">Date</th>
+              <td>4 November 2026</td>
             </tr>
             <tr>
-              <th scope="row">Material reviewed</th>
-              <td>The first version of this site and both repositories, at the commit immediately before the one that answers each comment</td>
+              <th scope="row">Material</th>
+              <td>The published site and the project repository, opened cold — no explanation from me</td>
             </tr>
             <tr>
               <th scope="row">Time budget</th>
-              <td>About 10 minutes, with no explanation from me</td>
+              <td>About five minutes</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="small">
-        The reviewer was not asked “does it look nice”. They were asked three tasks: find the semester
-        project from the home page in two clicks and state its research question; open one figure and
-        say what quantity its axes measure, including units; and say whether the analysis could be
-        rerun from the repository alone — and where they got stuck.
+      <p>She was given three tasks, deliberately not “does it look nice”:</p>
+      <ul class="findings">
+        <li>Find the semester project from the home page in two clicks or fewer, and say what its research question is.</li>
+        <li>Open one figure and say what quantity each axis measures, <em>including units</em>.</li>
+        <li>Say whether the analysis could be rerun from the repository alone.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ PEER REVIEW: ANSWERS ============================ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Peer review · 2 of 2</p>
+      <h2>Her answers</h2>
+      <p class="small">She answered in Chinese; the wording below is translated, not paraphrased into a pass.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Task</th><th scope="col">What she reported</th><th scope="col">Verdict</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Find the project and state its question</td>
+              <td>“I can find the semester project, and I can tell what the research question is.”</td>
+              <td>Passed</td>
+            </tr>
+            <tr>
+              <td>2. Read the axes and units off a figure</td>
+              <td>“The axes are longitude and latitude, and the unit is degrees.”</td>
+              <td>Passed — and exposed a gap (below)</td>
+            </tr>
+            <tr>
+              <td>3. Rerun the analysis from the repository alone</td>
+              <td>“It all runs.”</td>
+              <td>Passed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT CHANGED ============================ -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What the review changed</p>
+      <h2>One standard, applied to all six figures</h2>
+      <p>
+        Her task 2 was answerable for the map she happened to open. Applying the same question to the
+        rest of the page showed that <strong>only two of the six captions actually stated their
+        axes</strong>; the other four described the finding and left the reader to infer what was
+        plotted. Since “axes and units” is exactly what the marking rubric asks for, that was a real
+        gap and not a stylistic preference.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size:1.05rem;">Before</h3>
+          <p class="small" style="margin-bottom:0;">
+            “Figure 3 — the morning tilt reverses. Eight 30-minute slots. The share of net-source
+            fences falls from 47.8 % …”
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1.05rem;">After</h3>
+          <p class="small" style="margin-bottom:0;">
+            “Figure 3 — the morning tilt reverses. Eight 30-minute slots, one panel each. In every
+            panel: x-axis = longitude (degrees), y-axis = latitude (degrees), colour = tidal index
+            (unitless, −1 to +1) …”
+          </p>
+        </div>
+      </div>
+      <p style="margin-top:20px;">
+        All six captions on the
+        <a href="projects/xiamen.html">project page</a> now name their x-axis, their y-axis and the
+        unit of each. No number changed.
+      </p>
+      <p>
+        <a class="btn" href="https://github.com/qyyyyy123/data-science-portfolio/commit/0301033" target="_blank" rel="noopener">See the commit ↗</a>
+        <span class="small" style="margin-left:12px;"><code>0301033</code> — site: state axes and units in all six figure captions (peer review)</span>
       </p>
     </div>
   </section>
 
+  <!-- ============================ SELF REVIEW ============================ -->
   <section>
     <div class="wrap">
-      <p class="eyebrow">What changed</p>
-      <h2>Comment → response → commit</h2>
+      <p class="eyebrow">Self-review, not peer feedback</p>
+      <h2>What I had already changed before anyone else saw it</h2>
+      <p>
+        These came from checking the site against the marking rubric myself. They are listed separately
+        so that the peer review above is not credited with work it did not do.
+      </p>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">What the reviewer said</th>
-              <th scope="col">What I changed</th>
-              <th scope="col">Commit</th>
-            </tr>
+            <tr><th scope="col">#</th><th scope="col">What I found wrong</th><th scope="col">What I changed</th><th scope="col">Commit</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>“The showcase only has one small project — where is the semester project?”</td>
-              <td>Rebuilt the site around the Xiamen project: research question, two figures with axis units, four findings, limitation, status and repository link.</td>
+              <td>The showcase contained one small practice project — the semester project was missing entirely</td>
+              <td>Rebuilt the site around the Xiamen project: research question, two figures, four findings, limitation, status, repository link</td>
               <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
             </tr>
             <tr>
               <td>2</td>
-              <td>“The charts are hotlinked from raw.githubusercontent.com — one branch rename and the pictures vanish.”</td>
-              <td>Every figure copied into <code>assets/img/</code> and committed with the site. The pages now have no external dependency at all.</td>
+              <td>The only figure was hotlinked from <code>raw.githubusercontent.com</code> — a branch rename would break it</td>
+              <td>Every figure committed into <code>assets/img/</code>; the pages now have no external dependency</td>
               <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
             </tr>
             <tr>
               <td>3</td>
-              <td>“On a phone the wide figures overflow and the tables break.”</td>
-              <td>Responsive grid; figures declare intrinsic width and height so the layout does not jump; tables scroll horizontally; <code>scope="col"</code> on every header; visible keyboard focus; reduced-motion honoured.</td>
+              <td>Wide figures and tables overflowed on narrow screens; no keyboard focus; no <code>scope</code> on table headers</td>
+              <td>Responsive grid, intrinsic image dimensions, scrollable tables, <code>scope="col"</code>, visible focus ring, reduced-motion honoured</td>
               <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/952011e" target="_blank" rel="noopener"><code>952011e</code></a></td>
             </tr>
             <tr>
               <td>4</td>
-              <td>“The skills table undersells what you actually did — it says pandas and matplotlib.”</td>
-              <td>Rewrote it as skill <em>plus evidence</em>, each row pointing at the module or artifact that proves the claim.</td>
+              <td>The skills table said “pandas, matplotlib” and undersold the actual work</td>
+              <td>Rewritten as skill <em>plus evidence</em>, each row pointing at the module that proves it</td>
               <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/93f578e" target="_blank" rel="noopener"><code>93f578e</code></a></td>
             </tr>
             <tr>
               <td>5</td>
-              <td>“Your figure says MAE 3.970 but your table says 3.730. Which is right?”</td>
-              <td>Both: different fold populations. The report generator now emits the explanation, computing it from <code>model_metrics.json</code> so it cannot drift from the numbers again. Also written up in <code>docs/EXPECTED_OUTPUTS.md</code>.</td>
+              <td>The prediction figure said MAE 3.970 while the metrics table said 3.730</td>
+              <td>Both are correct — different fold populations. The report generator now emits the explanation, computed from <code>model_metrics.json</code></td>
               <td><a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/commit/4a6d985" target="_blank" rel="noopener"><code>4a6d985</code></a></td>
             </tr>
             <tr>
               <td>6</td>
-              <td>“I could not tell what the data licence allows.”</td>
-              <td>Added the licence, the CC BY-NC 4.0 attribution, the SHA-256 of the archive and an explicit statement that the archive is not redistributed.</td>
+              <td>Nothing on the site said what the data licence allows</td>
+              <td>Licence, CC BY-NC 4.0 attribution, SHA-256 of the archive, and an explicit “not redistributed” statement</td>
               <td><a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/commit/c936ce8" target="_blank" rel="noopener"><code>c936ce8</code></a></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>The home page said the review raised “five issues” while this page lists more</td>
+              <td>Corrected the count and pointed the home page at this record</td>
+              <td><a href="https://github.com/qyyyyy123/data-science-portfolio/commit/935e343" target="_blank" rel="noopener"><code>935e343</code></a></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <p class="eyebrow">The one I declined</p>
-      <h2>A suggestion I did not take</h2>
+      <h3 style="margin-top:36px;">One suggestion I declined</h3>
       <div class="callout">
-        <strong>Suggestion:</strong> “Smooth the growth curve in the Netflix chart — it looks like a
-        decline at the end.”<br>
+        <strong>Suggestion (mine, during self-review):</strong> smooth the growth curve in the Netflix
+        chart, because it “looks like a decline” at the end.<br>
         <strong>Decision: declined.</strong> The apparent decline is the dataset's truncated final year
-        (its last entry is 2021-09-25). Smoothing would have hidden the one thing that chart is most
-        useful for teaching: check the boundary of a dataset before you read a trend into it. The
-        recommendation is recorded here rather than quietly dropped, because “the reviewer suggested
-        it” is not a reason to make an analysis worse.
+        — its last entry is 2021-09-25. Smoothing would hide the one thing that chart is most useful
+        for: check the boundary of a dataset before reading a trend into it. Recorded here rather than
+        quietly dropped, because “it would look nicer” is not a reason to make an analysis worse.
       </div>
     </div>
   </section>
 
+  <!-- ============================ RESPONSIBLE SHARING ============================ -->
   <section>
     <div class="wrap">
       <p class="eyebrow">Responsible sharing</p>
@@ -174,6 +250,7 @@
     </div>
   </section>
 
+  <!-- ============================ TESTING ============================ -->
   <section>
     <div class="wrap">
       <p class="eyebrow">Testing</p>
@@ -183,6 +260,7 @@
           <a href="https://qyyyyy123.github.io/data-science-portfolio/" target="_blank" rel="noopener">qyyyyy123.github.io/data-science-portfolio</a></li>
         <li><strong>Every internal link and image resolves</strong> — checked against the file tree, not eyeballed: 0 broken <code>href</code>, 0 broken <code>src</code></li>
         <li><strong>Images display</strong> — all nine figures are committed in <code>assets/img/</code>, with intrinsic dimensions and alt text</li>
+        <li><strong>Every figure caption names its axes and units</strong> — the standard the peer review set, applied to all six</li>
         <li><strong>Every external link</strong> points at a public repository, a specific commit, or a DOI</li>
         <li><strong>Layout holds at 500 px, 768 px and 1280 px</strong> — no horizontal page scroll; wide tables scroll inside their own container. Chrome on Windows will not open a 360 px window, so 500 px is the narrowest viewport that could be rendered directly; nothing in the stylesheet has a fixed pixel width, so narrower screens wrap rather than overflow.</li>
         <li><strong>Print stylesheet</strong> drops the navigation so the pages can be read as a PDF</li>
