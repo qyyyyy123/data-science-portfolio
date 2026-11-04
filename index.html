@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qu Ying — Data Science Portfolio</title>
+<meta name="description" content="Data science portfolio of Qu Ying: a measured detour factor for Xiamen bike-share rebalancing, an honest validation scheme, and the limitations that come with five mornings of GPS data.">
+<meta name="author" content="Qu Ying">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Qu Ying<span>.</span></a>
+    <nav class="top" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#coursework">Coursework</a>
+      <a href="#reflection">Reflection</a>
+      <a href="feedback.html">Feedback log</a>
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub&nbsp;↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Data Science Portfolio · CISC7204</p>
+        <h1>I turn city data into answers you can <em>check</em>.</h1>
+        <p class="sub">
+          Data science student at the University of Macau. My work starts with a question narrow
+          enough to be wrong about, then measures the thing instead of assuming it — and says
+          plainly where the data runs out.
+        </p>
+        <div class="tagrow">
+          <span class="tag">Python</span>
+          <span class="tag">pandas · numpy</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">spatial analysis</span>
+          <span class="tag">statistical inference</span>
+          <span class="tag">reproducible pipelines</span>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="#projects">See the semester project</a>
+          <a class="btn ghost" href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">01 — About</p>
+      <h2>Who is writing this</h2>
+      <div class="grid-2">
+        <div>
+          <p>
+            I am a data science student at the University of Macau, currently working through the
+            CISC7204 data science sequence: EDA, visualisation, statistical inference, and a full
+            semester project on a real, messy, city-scale dataset.
+          </p>
+          <p>
+            What I enjoy most is the part before the modelling — discovering that every
+            <code>.csv</code> in an archive is actually an Excel workbook, that a bicycle ID is only
+            written once per block, or that a published paper quotes two different fence counts.
+            Those are not annoyances; they are the analysis.
+          </p>
+        </div>
+        <div>
+          <p>
+            The habit I am deliberately building is <strong>measuring rather than borrowing</strong>.
+            My semester project re-estimates a detour factor that scheduling models usually import
+            from a textbook, and reports that it is <em>not</em> a constant — which is a less tidy
+            result than the one I started with.
+          </p>
+          <p>
+            Everything I publish is written so that a classmate can rerun it: one entry point, a
+            pinned dependency list, expected numbers, and a list of the places where I chose a
+            threshold and could have chosen differently.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SKILLS ============================ -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow">02 — Skills</p>
+      <h2>What I can do, and where you can see it</h2>
+      <p class="lede">Every row points at a file in a public repository, so the claim is verifiable.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Tools</th><th>Evidence</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Data wrangling</strong></td>
+              <td>Python, pandas, numpy, openpyxl</td>
+              <td>Parsing 12 mislabelled workbooks, forward-filling merged bicycle IDs, rebuilding 212,680 trips — <code>xm_core.py</code> M0–M2</td>
+            </tr>
+            <tr>
+              <td><strong>Statistical inference</strong></td>
+              <td>scipy.stats, bootstrap, permutation tests</td>
+              <td>Kruskal–Wallis and Welch ANOVA on ω by zone and hour; 1,000-replicate bootstrap CIs; Moran's I with 999 permutations; HC1-robust OLS written from scratch</td>
+            </tr>
+            <tr>
+              <td><strong>Machine learning</strong></td>
+              <td>scikit-learn</td>
+              <td><code>HistGradientBoostingRegressor</code> under leave-one-day-out validation, permutation importance, K-Means++, spectral clustering</td>
+            </tr>
+            <tr>
+              <td><strong>Spatial analysis</strong></td>
+              <td>matplotlib.path, scipy cKDTree, folium</td>
+              <td>Point-in-polygon fence assignment with a 50 m snap tier and a radius-sensitivity table; city-wide tidal map over 10,517 fences</td>
+            </tr>
+            <tr>
+              <td><strong>Visualisation</strong></td>
+              <td>matplotlib, folium, plotly, dash</td>
+              <td>11 publication-style figures with titles, units and legends; an interactive Leaflet map; a callback-driven Dash dashboard</td>
+            </tr>
+            <tr>
+              <td><strong>Reproducible engineering</strong></td>
+              <td>Git, GitHub, venv, pip, Jupyter</td>
+              <td>One-command pipeline with <code>--skip-to</code> resume, per-stage timing log, pinned <code>requirements.txt</code>, expected-output table</td>
+            </tr>
+            <tr>
+              <td><strong>Communication</strong></td>
+              <td>Markdown, technical writing</td>
+              <td>An 11-section report where every number is generated from the artifacts, so the prose cannot drift from the results</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">
+        Deliberately not listed: tools I have only read about. If it is not in a repository above,
+        it is not in this table.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ PROJECTS ============================ -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">03 — Project showcase</p>
+      <h2>Semester project</h2>
+
+      <article class="card" style="margin-top:22px;">
+        <div class="project-head">
+          <h3>Xiamen shared-bicycle tidal imbalance</h3>
+          <span class="status">Complete</span>
+        </div>
+        <p class="meta">
+          <span>CISC7204 semester project · Class B, Team 02</span>
+          <span>Python 3.11+ · 2,715-line core module</span>
+          <span>2026</span>
+        </p>
+
+        <div class="research-q">
+          <strong>Research question.</strong> During the 06:00–10:00 peak, how is shared-bicycle
+          demand out of balance across Xiamen's electronic fences — and how far can a single
+          <em>borrowed</em> detour factor be trusted when a rebalancing plan is priced with it?
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="n">212,680</div><div class="l">trips rebuilt</div></div>
+          <div class="kpi"><div class="n">29,668</div><div class="l">rides with measured ω</div></div>
+          <div class="kpi"><div class="n">1.493</div><div class="l">mean ω (borrowed: 1.529)</div></div>
+          <div class="kpi"><div class="n">0.716</div><div class="l">Louvain modularity</div></div>
+        </div>
+
+        <figure>
+          <img src="assets/img/omega-distribution.png"
+               alt="Left: histogram of the measured detour factor omega for 29,668 rides, peaking near 1.2, with vertical lines marking the borrowed constant 1.529, the measured mean 1.493 and the median 1.299. Right: empirical cumulative distribution, showing that 73.5 percent of rides fall below 1.529."
+               width="1875" height="690" loading="lazy">
+          <figcaption>
+            <b>Figure 1 — the detour factor is a distribution, not a number.</b> X-axis: ω =
+            visited path length ÷ straight-line distance (unitless). Y-axis, left: number of rides;
+            right: cumulative share. The dashed red line is the 1.529 that the published scheduling
+            model borrows from Ballou (2002); 73.5 % of measured rides sit below it.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/img/tidal-map.png"
+               alt="Map of Xiamen showing 2,905 electronic fences coloured by morning tidal index, red for net sources and blue for net sinks, with point size proportional to total flow, and a legend for all 10,517 registered fences."
+               width="1290" height="1110" loading="lazy">
+          <figcaption>
+            <b>Figure 2 — the morning commute is a two-sided tide.</b> Fence-level tidal index,
+            <code>(pickups − returns) ÷ (pickups + returns)</code> over five mornings, range
+            [−1, +1]. Red fences emit bicycles, blue fences accumulate them; point size scales with
+            √(total flow). Axes are WGS-84 latitude/longitude in degrees. Moran's I = 0.123
+            (p = 0.001), so the imbalance is spatially clustered at street scale.
+          </figcaption>
+        </figure>
+
+        <h4>What I found</h4>
+        <ul class="findings">
+          <li>
+            <strong>The tide is street-scale, not district-scale.</strong> 1,075 fences are net
+            sources and 1,049 are net sinks; the share of net-source fences falls from 47.8 % at
+            06:00–06:30 to 37.5 % at 08:00–08:30, the slot where net sinks peak. A district-level
+            rebalancing plan would average away exactly the signal an operator needs.
+          </li>
+          <li>
+            <strong>The borrowed constant misprices most trips.</strong> Measured ω averages 1.493
+            (median 1.299, 95th percentile 2.82) and differs significantly by fence role
+            (p = 1.5 × 10<sup>−12</sup>) and by hour (p = 4.1 × 10<sup>−4</sup>); the zone contrast
+            survives a robust regression that also controls for hour. Using one constant overstates
+            the cost of the many short residential rides and understates the long tail.
+          </li>
+          <li>
+            <strong>Flow direction beats demand similarity for operations.</strong> At the same
+            granularity, communities built on the OD flow graph are more modular (0.716 vs 0.642)
+            and 3.9× better net-flow balanced than the published distance + demand-correlation
+            affinity clustering, at a statistically tied silhouette score.
+          </li>
+          <li>
+            <strong>Honest validation is humbling.</strong> Under leave-one-day-out validation the
+            demand model reaches MAE 3.730 / R² 0.430 (r = 0.670); on a genuinely held-out future
+            morning it reaches MAE 2.734 / R² 0.704. Reporting the weaker, date-grouped number is
+            the point.
+          </li>
+        </ul>
+
+        <div class="callout">
+          <strong>Limitation.</strong> The archive covers five consecutive weekdays with exactly one
+          rainy day, so weather is perfectly confounded with day-of-week and is treated as a
+          <em>control variable only, not causal</em>. Everything reported is an association from one
+          city, one morning peak, with no rider identifiers and no counterfactual. ω is measured on
+          continuous tracking episodes rather than confirmed trips, and the 50 m fence-snap radius is
+          a modelling choice whose effect I report as a sensitivity table (1.90 % match with
+          containment alone, 88.72 % at 200 m).
+        </div>
+
+        <p class="small" style="margin-top:20px;">
+          <a href="projects/xiamen.html">Full project page — method, four figures, all numbers →</a>
+        </p>
+        <div class="btnrow" style="margin-top:14px;">
+          <a class="btn" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis" target="_blank" rel="noopener">Project repository ↗</a>
+          <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/docs/FINAL_REPORT.md" target="_blank" rel="noopener">Full report ↗</a>
+          <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/Xiamen_SharedBicycle_Analysis.ipynb" target="_blank" rel="noopener">Notebook ↗</a>
+        </div>
+      </article>
+
+      <h2 style="margin-top:56px;">Earlier project</h2>
+
+      <article class="card" style="margin-top:22px;">
+        <div class="project-head">
+          <h3>Netflix catalogue analysis</h3>
+          <span class="status">Complete</span>
+        </div>
+        <p class="meta">
+          <span>Self-directed analysis · course practice</span>
+          <span>Python · pandas · matplotlib</span>
+          <span>2026</span>
+        </p>
+
+        <div class="research-q">
+          <strong>Research question.</strong> What trends can be observed in the composition,
+          growth, geographic origin and audience targeting of the Netflix catalogue?
+        </div>
+
+        <figure>
+          <img src="assets/img/netflix-titles-by-year.png"
+               alt="Line chart of the number of titles added to Netflix per year from 2008 to 2021, flat before 2014, rising steeply from 2015 and peaking near 2,000 titles in 2019 before declining in 2020 and 2021."
+               width="1000" height="500" loading="lazy">
+          <figcaption>
+            <b>Titles added per year, 2008–2021.</b> X-axis: year the title was added. Y-axis:
+            number of titles. Additions were negligible before 2014, accelerated from 2015 and peaked
+            at roughly 2,000 in 2019. The apparent fall in 2020–2021 is not a shrinking catalogue:
+            the dataset's last entry is 2021-09-25, so 2021 covers about nine months.
+          </figcaption>
+        </figure>
+
+        <ul class="findings">
+          <li>Movies are about 70 % of the catalogue, far outnumbering TV shows.</li>
+          <li>Production is US-centric — close to 2,800 titles, nearly three times second-place India.</li>
+          <li>Mature ratings dominate (TV-MA, TV-14); family ratings such as TV-Y and TV-G are marginal.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Limitation.</strong> Country counts come from the raw <code>country</code> field
+          without splitting co-production entries, so they measure <em>country mentions</em>, not
+          exclusive country of origin. The dataset is also a snapshot: the truncated final year makes
+          the last two points of the growth curve uninterpretable as a trend.
+        </div>
+
+        <div class="btnrow" style="margin-top:14px;">
+          <a class="btn" href="https://github.com/qyyyyy123/data-science-project" target="_blank" rel="noopener">Repository ↗</a>
+          <a class="btn ghost" href="projects/netflix.html">Project page →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ COURSEWORK ============================ -->
+  <section id="coursework">
+    <div class="wrap">
+      <p class="eyebrow">04 — Coursework</p>
+      <h2>Assignment repositories</h2>
+      <p class="lede">
+        The lab notebooks behind the two assignments, kept public so that a marker can inspect the
+        work directly.
+      </p>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="card">
+          <div class="project-head"><h3 style="font-size:1.25rem;">Assignment 01</h3></div>
+          <p class="small" style="margin-top:8px;">
+            Modules 01–06: EDA and visualisation labs, the practice project, the preliminary project
+            proposal and the module-06 final project notebook.
+          </p>
+          <p style="margin-bottom:0;">
+            <a href="https://github.com/qyyyyy123/CISC7204-MC641326-2026GitHub/tree/main/cisc7204-Assgn01-2026-MC641326" target="_blank" rel="noopener">Assignment 01 notebooks ↗</a>
+          </p>
+        </div>
+        <div class="card">
+          <div class="project-head"><h3 style="font-size:1.25rem;">Assignment 02</h3></div>
+          <p class="small" style="margin-top:8px;">
+            Modules 01–05: statistical inference labs, the revised project proposal, and the
+            visualisation sequence — matplotlib, seaborn and folium exhibits rebuilt as a Plotly–Dash
+            dashboard.
+          </p>
+          <p style="margin-bottom:0;">
+            <a href="https://github.com/qyyyyy123/CISC7204-MC641326-2026GitHub/tree/main/cisc7204-Assgn02-2026-MC641326" target="_blank" rel="noopener">Assignment 02 notebooks ↗</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REFLECTION ============================ -->
+  <section id="reflection">
+    <div class="wrap">
+      <p class="eyebrow">05 — Reflection</p>
+      <h2>What this portfolio demonstrates, and what I will improve next</h2>
+      <div class="card">
+        <p>
+          This portfolio shows that I can take a project from raw, awkward data to a defensible
+          answer. On the semester project I rebuilt 212,680 bike-share trips from 441,350 lock
+          events, discovered that every “CSV” in the archive was really an Excel workbook, and
+          measured a detour factor from 2.85 million GPS fixes rather than accepting the 1.529 that
+          scheduling models usually borrow. The measured value is 1.493, and it is significantly
+          different across zones and hours — a less tidy finding than the one I expected. What I am
+          proudest of is not that number but the surrounding apparatus: a one-command pipeline, a
+          pinned environment, an expected-output table, and a report whose every figure is generated
+          from the artifacts so the prose cannot drift from the results. The strongest limitation is
+          that five weekdays contain exactly one rainy day, so weather is confounded with
+          day-of-week; I therefore treat weather as a control variable and refuse causal language.
+          Next, I want to replace the 50 m fence-snap radius with probabilistic map-matching, and put
+          the empirical ω distribution inside an actual rebalancing optimiser to see how much the
+          plan cost changes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEEDBACK ============================ -->
+  <section id="feedback">
+    <div class="wrap">
+      <p class="eyebrow">06 — Feedback &amp; improvements</p>
+      <h2>What a reviewer changed, and what I did about it</h2>
+      <p class="lede">
+        A review of the first version of this portfolio raised five issues. The review record and
+        the commits that answer it are on the feedback log page.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Review comment</th><th>What I changed</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>“The showcase only has one small project — where is the semester project?”</td>
+              <td>Rebuilt the site around the Xiamen project: research question, two figures, four findings, limitation and status.</td>
+            </tr>
+            <tr>
+              <td>“The charts are hotlinked from raw.githubusercontent — one branch rename and the pictures vanish.”</td>
+              <td>Moved every image into <code>assets/img/</code> and committed it with the site.</td>
+            </tr>
+            <tr>
+              <td>“On a phone the wide figures overflow and the tables break.”</td>
+              <td>Responsive layout, fluid images with intrinsic dimensions, horizontally scrollable tables, and alt text on every figure.</td>
+            </tr>
+            <tr>
+              <td>“The skills table undersells what you actually did.”</td>
+              <td>Rewrote it as skills <em>plus evidence</em>, pointing at the module that proves each claim.</td>
+            </tr>
+            <tr>
+              <td>“I cannot tell whether the figure number and the report table contradict each other.”</td>
+              <td>Documented the 3.970 vs 3.730 difference in <code>docs/EXPECTED_OUTPUTS.md</code>: different fold populations, both correct.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="feedback.html">Feedback log — reviewer, comment, response, commit hash →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>
+      <strong>Qu Ying</strong> · Data Science, University of Macau · CISC7204 portfolio
+    </p>
+    <p>
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">github.com/qyyyyy123</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis" target="_blank" rel="noopener">project repository</a>
+      &nbsp;·&nbsp;
+      <a href="feedback.html">feedback log</a>
+    </p>
+    <p class="small">
+      No passwords, API keys, personal data or restricted datasets appear anywhere in this
+      repository or its history. The underlying bike-share archive is CC BY-NC 4.0 and is linked,
+      never re-hosted.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

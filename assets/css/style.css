@@ -1,0 +1,221 @@
+/* ---------------------------------------------------------------
+   Qu Ying — Data Science Portfolio
+   Single stylesheet, no external dependencies, works offline.
+   --------------------------------------------------------------- */
+
+:root {
+  --ink: #10161f;
+  --ink-soft: #2c3a4a;
+  --muted: #5f6b7a;
+  --line: #e2e0d9;
+  --paper: #fbfaf6;
+  --card: #ffffff;
+  --accent: #0f766e;
+  --accent-soft: #e6f2f0;
+  --warn: #9a5b13;
+  --warn-soft: #fdf3e3;
+  --max: 1060px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+               "Noto Sans", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 .5em;
+}
+
+p { margin: 0 0 1em; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(15,118,110,.3); }
+a:hover { border-bottom-color: var(--accent); }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .88em;
+}
+code { background: #f0eee8; padding: .12em .38em; border-radius: 4px; }
+pre {
+  background: #12202b; color: #e8eef2; padding: 16px 18px; border-radius: 10px;
+  overflow-x: auto; line-height: 1.5;
+}
+pre code { background: none; color: inherit; padding: 0; }
+
+/* ---------- layout ---------- */
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+section { padding: 56px 0; border-top: 1px solid var(--line); }
+section:first-of-type { border-top: none; }
+
+.eyebrow {
+  font-size: .76rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin: 0 0 10px;
+}
+
+.lede { font-size: 1.12rem; color: var(--ink-soft); }
+
+/* ---------- header ---------- */
+
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251,250,246,.92);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+header.site .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; min-height: 62px;
+}
+.brand { font-weight: 700; letter-spacing: .01em; border: none; color: var(--ink); }
+.brand span { color: var(--accent); }
+nav.top { display: flex; flex-wrap: wrap; gap: 20px; font-size: .92rem; }
+nav.top a { color: var(--muted); border: none; }
+nav.top a:hover { color: var(--ink); }
+
+/* ---------- hero ---------- */
+
+.hero { padding: 72px 0 60px; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); letter-spacing: -.01em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .sub { font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
+
+.tagrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; }
+.tag {
+  font-size: .8rem; padding: 5px 11px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line); color: var(--ink-soft);
+}
+
+.btnrow { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block; padding: 11px 18px; border-radius: 999px;
+  font-size: .92rem; font-weight: 600; border: 1px solid var(--accent);
+  color: #fff; background: var(--accent);
+}
+.btn:hover { background: #0c5f59; border-color: #0c5f59; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.ghost:hover { background: var(--accent-soft); }
+
+/* ---------- cards & grids ---------- */
+
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 28px;
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+/* ---------- tables ---------- */
+
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: .95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+tbody tr:last-child td { border-bottom: none; }
+.table-wrap { overflow-x: auto; }
+
+/* ---------- figures ---------- */
+
+figure { margin: 26px 0; }
+figure img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 10px; background: #fff;
+}
+figcaption {
+  font-size: .86rem; color: var(--muted); margin-top: 10px; line-height: 1.55;
+}
+figcaption b { color: var(--ink-soft); }
+
+/* ---------- project blocks ---------- */
+
+.project-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; }
+.project-head h3 { margin: 0; font-size: 1.6rem; }
+
+.status {
+  font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent);
+  white-space: nowrap;
+}
+.status.wip { background: var(--warn-soft); color: var(--warn); }
+
+.meta {
+  font-size: .84rem; color: var(--muted); margin: 6px 0 18px;
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+}
+
+.research-q {
+  border-left: 3px solid var(--accent); padding: 4px 0 4px 16px;
+  font-size: 1.02rem; color: var(--ink-soft); margin: 20px 0;
+}
+
+.findings { padding-left: 20px; margin: 0 0 18px; }
+.findings li { margin-bottom: 10px; }
+
+.callout {
+  background: var(--warn-soft); border: 1px solid #f0dcb8; border-radius: 10px;
+  padding: 16px 18px; font-size: .93rem; color: #4a3617;
+}
+.callout strong { color: var(--warn); }
+
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin: 24px 0; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.kpi .n { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 1.5rem; color: var(--accent); }
+.kpi .l { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+/* ---------- footer ---------- */
+
+footer.site {
+  border-top: 1px solid var(--line); padding: 36px 0 48px; color: var(--muted); font-size: .9rem;
+}
+footer.site a { color: var(--muted); }
+
+/* ---------- misc ---------- */
+
+.small { font-size: .88rem; color: var(--muted); }
+.divider { height: 1px; background: var(--line); margin: 40px 0; }
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li { padding-left: 26px; position: relative; margin-bottom: 9px; font-size: .95rem; }
+.checklist li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700;
+}
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 12px; top: 8px; background: #fff; padding: 8px 12px; z-index: 100; border-radius: 6px; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  section { padding: 44px 0; }
+  .hero { padding: 48px 0 40px; }
+  body { font-size: 16px; }
+}
+
+@media (max-width: 560px) {
+  header.site .wrap { flex-direction: column; align-items: flex-start; gap: 6px; padding-bottom: 10px; }
+  nav.top { gap: 14px; font-size: .86rem; }
+  .card { padding: 20px; }
+}
+
+@media print {
+  header.site, .btnrow, footer.site { display: none; }
+  body { background: #fff; font-size: 11pt; }
+  section { page-break-inside: avoid; }
+}

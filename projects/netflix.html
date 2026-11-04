@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Netflix catalogue analysis — Qu Ying</title>
+<meta name="description" content="An exploratory analysis of the Netflix catalogue: growth by year, movie/TV composition, country concentration and audience ratings, with the limits of a snapshot dataset.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Qu Ying<span>.</span></a>
+    <nav class="top" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../feedback.html">Feedback log</a>
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub&nbsp;↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" style="padding-bottom:20px;">
+    <div class="wrap">
+      <p class="eyebrow"><a href="../index.html#projects" style="border:none;">← Project showcase</a></p>
+      <h1>Netflix catalogue analysis</h1>
+      <p class="sub" style="max-width:70ch;">
+        An exploratory project on a public snapshot of the Netflix catalogue — the kind of analysis
+        that is easy to make look impressive and easy to get wrong, because the dataset is a
+        photograph of a moving object.
+      </p>
+      <p class="meta" style="margin-top:16px;">
+        <span>Self-directed analysis · course practice</span>
+        <span>Python · pandas · matplotlib</span>
+        <span><span class="status">Complete</span></span>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The question</p>
+      <h2>What changed in the catalogue</h2>
+      <div class="research-q">
+        What trends can be observed in the composition, growth, geographic origin and audience
+        targeting of Netflix's movies and TV shows?
+      </div>
+      <p>
+        Four angles: how the volume of additions changed over time, the movie/TV split, which
+        countries the catalogue is credited to, and which age ratings dominate.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The data</p>
+      <h2>One table, twelve columns</h2>
+      <p>
+        <code>netflix_titles.csv</code> — 8,807 rows × 12 columns: <code>show_id</code>,
+        <code>type</code>, <code>title</code>, <code>director</code>, <code>cast</code>,
+        <code>country</code>, <code>date_added</code>, <code>release_year</code>,
+        <code>rating</code>, <code>duration</code>, <code>listed_in</code>,
+        <code>description</code>. The file is committed with the notebook, so the analysis is
+        reproducible without a download.
+      </p>
+      <p class="small">
+        Because it is a snapshot, the column that matters most is not <code>release_year</code> but
+        <code>date_added</code>: the last entry is <strong>2021-09-25</strong>, so any year-on-year
+        comparison has to account for the final year being only three-quarters complete.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Result</p>
+      <h2>Growth, then a cliff that is not a cliff</h2>
+      <figure>
+        <img src="../assets/img/netflix-titles-by-year.png"
+             alt="Line chart of titles added to Netflix per year from 2008 to 2021: near zero before 2014, steep growth from 2015, a peak of about 2,000 titles in 2019, then 1,875 in 2020 and 1,500 in 2021."
+             width="1000" height="500" loading="lazy">
+        <figcaption>
+          <b>Titles added per year.</b> X-axis: year added. Y-axis: number of titles. Additions were
+          negligible before 2014, accelerated sharply from 2015 and peaked at roughly 2,000 in 2019.
+        </figcaption>
+      </figure>
+      <ul class="findings">
+        <li><strong>The final drop is an artefact.</strong> 2021 covers about nine months, so the last point measures the dataset's collection window, not Netflix's strategy. Reading the downward slope as a shrinking catalogue is the obvious mistake, and the reason I plot the boundary of the data rather than a smooth trend line.</li>
+        <li><strong>Movies dominate.</strong> About 70 % of titles are movies rather than TV shows.</li>
+        <li><strong>Production is concentrated.</strong> The United States accounts for close to 2,800 titles — nearly three times second-place India.</li>
+        <li><strong>Mature audiences are the target.</strong> TV-MA and TV-14 dominate the ratings; family ratings such as TV-Y and TV-G are marginal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Limitations</p>
+      <h2>What the snapshot cannot support</h2>
+      <div class="callout">
+        <strong>Country counts are country mentions, not origins.</strong> The <code>country</code>
+        field lists co-productions in one cell and the field was not split, so a title credited to
+        three countries is counted three times. The US concentration is real in direction but its
+        magnitude is inflated by that choice.
+      </div>
+      <ul class="findings" style="margin-top:20px;">
+        <li>The data is a <strong>single snapshot of one catalogue in one region</strong>: it cannot speak to viewing behaviour, licensing cost, or what other regions see.</li>
+        <li>The truncated final year makes the last two points of the growth curve uninterpretable as a trend without an explicit correction.</li>
+        <li>Missing values in <code>director</code> and <code>cast</code> are not random — they cluster in certain content types — so any analysis of them would need that checked first.</li>
+      </ul>
+      <div class="btnrow" style="margin-top:18px;">
+        <a class="btn" href="https://github.com/qyyyyy123/data-science-project" target="_blank" rel="noopener">Repository ↗</a>
+        <a class="btn ghost" href="https://github.com/qyyyyy123/data-science-project/blob/main/Netflix_Content_Analysis.ipynb" target="_blank" rel="noopener">Notebook ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Qu Ying</strong> · Data Science, University of Macau · CISC7204 portfolio</p>
+    <p>
+      <a href="../index.html">Home</a> &nbsp;·&nbsp;
+      <a href="xiamen.html">Xiamen project</a> &nbsp;·&nbsp;
+      <a href="../feedback.html">Feedback log</a> &nbsp;·&nbsp;
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

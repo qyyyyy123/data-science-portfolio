@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xiamen shared-bicycle tidal imbalance 鈥?Qu Ying</title>
+<meta name="description" content="Project deep dive: rebuilding 212,680 bike-share trips from five mornings of Xiamen data, measuring the detour factor omega, and comparing flow-based communities with a published affinity clustering.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Qu Ying<span>.</span></a>
+    <nav class="top" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../feedback.html">Feedback log</a>
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub&nbsp;鈫?/a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" style="padding-bottom:20px;">
+    <div class="wrap">
+      <p class="eyebrow"><a href="../index.html#projects" style="border:none;">鈫?Project showcase</a></p>
+      <h1>Xiamen shared-bicycle tidal imbalance</h1>
+      <p class="sub" style="max-width:70ch;">
+        Five mornings of order, fence, trajectory and weather records from Xiamen's bike-share system.
+        The project reconstructs the trips, measures how the city's bicycles drain out of some fences
+        and pile up at others, and tests the one number that rebalancing models usually take on
+        faith.
+      </p>
+      <p class="meta" style="margin-top:16px;">
+        <span>CISC7204 semester project 路 Class B, Team 02</span>
+        <span>Python 3.11+</span>
+        <span><span class="status">Complete</span></span>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The question</p>
+      <h2>Four questions, one dataset</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Question</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>RQ1</strong></td>
+              <td>How is net inflow/outflow distributed across fences, how strongly is it spatially clustered, and how does it evolve across eight 30-minute slots?</td>
+              <td>Rebalancing only works where the imbalance is stable <em>and</em> local.</td>
+            </tr>
+            <tr>
+              <td><strong>RQ2</strong></td>
+              <td>What is the <em>measured</em> detour factor 蠅 (path 梅 straight line), and is it constant across zones and hours?</td>
+              <td>Cost models need 蠅; the published model imports 1.529 from Ballou (2002) and never measures it.</td>
+            </tr>
+            <tr>
+              <td><strong>RQ3</strong></td>
+              <td>Does a community structure built on OD <em>flow direction</em> beat the published distance + demand-correlation affinity clustering?</td>
+              <td>A rebalancing zone should be internally balanced; affinity does not target that.</td>
+            </tr>
+            <tr>
+              <td><strong>RQ4</strong></td>
+              <td>How well can fence-level 30-minute demand be predicted under an honest, date-grouped validation scheme?</td>
+              <td>Short-horizon forecasts are what a dispatcher would actually use.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The data</p>
+      <h2>What was actually in the archive</h2>
+      <p>
+        <em>Shared bicycle data</em>, Zenodo DOI
+        <a href="https://doi.org/10.5281/zenodo.17415891" target="_blank" rel="noopener">10.5281/zenodo.17415891</a>,
+        <strong>CC BY-NC 4.0</strong>. Five consecutive weekdays, 2020-12-21 to 2020-12-25, morning
+        peak only, WGS-84, UTC+8. The archive itself is not redistributed: it is linked and
+        hash-verified instead.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Table</th><th>Rows used</th><th>Quirk that had to be handled</th></tr></thead>
+          <tbody>
+            <tr><td>Order events</td><td>441,350</td><td><code>BICYCLE_ID</code> written only on the first row of each bicycle block (a merged cell in the original spreadsheet) 鈥?forward-filled before pairing</td></tr>
+            <tr><td>Electronic fences</td><td>10,522 rows / 10,517 unique ids</td><td>The published paper says 14,071 in its abstract and 10,522 in its Methods</td></tr>
+            <tr><td>GPS fixes</td><td>2,849,243</td><td>No trip identifier, and each bicycle's day is only partly covered</td></tr>
+            <tr><td>Weather (hourly)</td><td>144</td><td><code>PRCP</code> and visibility columns are entirely empty</td></tr>
+            <tr><td>All 鈥?csv鈥?files</td><td>鈥?/td><td>Every one is actually an Office Open XML workbook; <code>pd.read_csv</code> fails, the loader sniffs the magic bytes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The method</p>
+      <h2>Eleven modules, one entry point</h2>
+      <p>
+        Everything is implemented from scratch in a 2,715-line core module 鈥?no geopandas, no shapely,
+        no statsmodels. Point-in-polygon uses <code>matplotlib.path.Path</code> with a bounding-box
+        prefilter; the heteroskedasticity-robust OLS is written and tested in-house.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Stage</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>M0鈥揗1</td><td>Find and extract the archive, classify tables by column-name heuristics, cross-check against the archive's own data dictionary, write the quality report</td></tr>
+            <tr><td>M2</td><td>Pair <code>LOCK_STATUS</code> 0鈫? per bicycle in time order; keep durations in [60, 3600] s 鈫?212,680 trips</td></tr>
+            <tr><td>M3</td><td>Assign endpoints to fences: containment + a 50 m centroid snap, with a radius-sensitivity table</td></tr>
+            <tr><td>M4</td><td>Join hourly weather as a <strong>control variable only; not causal</strong></td></tr>
+            <tr><td>M5</td><td>Fence 脳 30-minute panel with tidal index, keeping cells with 鈮?10 movements</td></tr>
+            <tr><td>M6</td><td>Recompute four published statistics 鈥?a <strong>pipeline validation, not our finding</strong></td></tr>
+            <tr><td>M7</td><td>City-wide tidal map, slot evolution, Moran's I with 999 permutations</td></tr>
+            <tr><td>M8</td><td><strong>Measured 蠅</strong>: tracking episodes 鈫?path 梅 chord, bootstrap 1000脳, Kruskal鈥揥allis, Welch ANOVA, HC1-robust OLS</td></tr>
+            <tr><td>M9</td><td>OD graph 鈫?Louvain, benchmarked against a reproduced paper-style affinity + K-Means++ baseline</td></tr>
+            <tr><td>M10</td><td><code>HistGradientBoostingRegressor</code> with leave-one-day-out grouped cross-validation 鈥?never a random K-fold, which would leak the future</td></tr>
+            <tr><td>M11</td><td>Interactive Folium map and a Plotly鈥揇ash dashboard</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Results</p>
+      <h2>What came out</h2>
+
+      <figure>
+        <img src="../assets/img/omega-distribution.png"
+             alt="Histogram and empirical CDF of the measured detour factor omega over 29,668 rides, compared with the borrowed constant 1.529."
+             width="1875" height="690" loading="lazy">
+        <figcaption>
+          <b>Figure 1 鈥?the detour factor is a distribution.</b> Measured on 29,668 rides:
+          mean <strong>1.493</strong> (95 % bootstrap CI 1.4868鈥?.5000), median <strong>1.299</strong>,
+          95th percentile 2.82. <strong>73.5 % of rides sit below the borrowed 1.529.</strong>
+        </figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Grouping</th><th>Group</th><th>n</th><th>Mean 蠅</th></tr></thead>
+          <tbody>
+            <tr><td>Fence role</td><td>source (residential)</td><td>8,711</td><td>1.559</td></tr>
+            <tr><td>Fence role</td><td>balanced</td><td>5,306</td><td>1.494</td></tr>
+            <tr><td>Fence role</td><td>sink (commercial)</td><td>4,415</td><td>1.478</td></tr>
+            <tr><td>Hour</td><td>06:00</td><td>2,435</td><td>1.589</td></tr>
+            <tr><td>Hour</td><td>08:00</td><td>13,274</td><td>1.481</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">
+        Kruskal鈥揥allis by fence role: p = 1.5 脳 10<sup>鈭?2</sup>. By hour: p = 4.1 脳 10<sup>鈭?</sup>.
+        The zone contrast survives an HC1-robust OLS that also controls for hour, so 鈥溝?is not a
+        constant鈥?is not an artefact of composition.
+      </p>
+
+      <figure>
+        <img src="../assets/img/tidal-map.png"
+             alt="City-wide map of Xiamen fences coloured by morning tidal index, red for net sources and blue for net sinks, point size proportional to total flow."
+             width="1290" height="1110" loading="lazy">
+        <figcaption>
+          <b>Figure 2 鈥?a two-sided tide.</b> 2,905 fences with total flow 鈮?20; red = net source,
+          blue = net sink, size 鈭?鈭?total flow). Moran's I = <strong>0.123</strong> (expectation
+          鈭?.0003, z = 37.7, 999 permutations, p = 0.001): the imbalance clusters at street scale.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="../assets/img/tidal-evolution.png"
+             alt="Two by four panel showing the tidal index across eight consecutive thirty-minute slots from 06:00 to 10:00, with sources in red and sinks in blue."
+             width="2400" height="1140" loading="lazy">
+        <figcaption>
+          <b>Figure 3 鈥?the morning tilt reverses.</b> Eight 30-minute slots. The share of net-source
+          fences falls from 47.8 % at 06:00鈥?6:30 to 37.5 % at 08:00鈥?8:30, the slot where net sinks
+          peak 鈥?the moment residential outflow has been absorbed by office and metro-adjacent
+          inflow.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="../assets/img/communities.png"
+             alt="Two maps comparing Louvain communities built on the origin-destination flow graph with a paper-style affinity clustering."
+             width="2250" height="1020" loading="lazy">
+        <figcaption>
+          <b>Figure 4 鈥?flow direction beats demand similarity.</b> At the same granularity (7
+          groups): modularity <strong>0.716 vs 0.642</strong>, mean absolute within-community
+          net-flow imbalance <strong>0.0225 vs 0.0871</strong> (3.9脳 better), silhouette a tie
+          (0.298 vs 0.300).
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="../assets/img/prediction.png"
+             alt="Two scatter panels of predicted versus actual pickups per 30 minutes: out-of-fold predictions on training days and predictions on a held-out future day."
+             width="1800" height="750" loading="lazy">
+        <figcaption>
+          <b>Figure 5 鈥?honest validation is humbling.</b> Left: pooled out-of-fold predictions on
+          the four training days (MAE 3.970, R虏 0.366, r 0.621). Right: the held-out future morning
+          (MAE 2.734, R虏 0.704, r 0.849). Pooling <em>all five</em> folds gives MAE 3.730 / R虏 0.430 鈥?          the different populations are documented so neither number is quoted out of context.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="../assets/img/feature-importance.png"
+             alt="Bar chart of permutation importance: increase in mean absolute error when each feature is shuffled, dominated by the historical mean and the previous slot of the same day."
+             width="1200" height="750" loading="lazy">
+        <figcaption>
+          <b>Figure 6 鈥?history dominates.</b> Permutation importance on the held-out day:
+          <code>hist_mean</code> +3.12 MAE, <code>lag1_same_day</code> +0.97, time-of-day 鈮?+0.14,
+          community +0.05. The weather controls contribute almost nothing 鈥?expected with five days
+          and a single rainy day.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Limitations</p>
+      <h2>What this project cannot say</h2>
+      <div class="callout">
+        <strong>Weather is a control variable only; not causal.</strong> Five consecutive weekdays
+        with exactly one rainy day makes weather perfectly confounded with day-of-week.
+      </div>
+      <ul class="findings" style="margin-top:20px;">
+        <li><strong>The four reproduction statistics are not our findings.</strong> 212,630 trips, cross-day r &gt; 0.90, the 08:00鈥?9:00 peak and the 鈮?60 % rainy-day drop belong to the published study; they are reproduced only to prove this pipeline parses and pairs correctly. All four pass.</li>
+        <li><strong>Observational and narrow.</strong> One city, five mornings, morning peak only, no rider identifiers, no counterfactual. Everything is an association.</li>
+        <li><strong>The panel is sparse.</strong> The prescribed 鈮?10 movements rule retains 1,738 fence鈥搒lot cells over 405 fences, so the prediction model is estimated on a small but honest sample (fold MAE 4.09 卤 1.33).</li>
+        <li><strong>蠅 is measured on tracking episodes, not confirmed trips.</strong> The independent cross-check inside OD trip windows (n = 2,456, mean 1.377) bounds but does not remove that bias.</li>
+        <li><strong>The 50 m snap is a choice.</strong> Endpoint match rate moves from 1.90 % (containment only) to 88.72 % (200 m); the sensitivity table is in the repository rather than buried.</li>
+        <li><strong>Communities are descriptive flow groupings</strong>, not administrative districts; their boundaries shift with the resolution parameter and the flow floor.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Reproduce</p>
+      <h2>Running it</h2>
+      <p>
+        The committed artifacts make the notebook runnable in about ten seconds without downloading
+        anything; the full pipeline needs the archive and runs in about a minute with a warm parse
+        cache.
+      </p>
+      <pre><code># read the analysis without the raw data (artifacts are committed)
+pip install -r requirements.txt
+jupyter lab Xiamen_SharedBicycle_Analysis.ipynb
+
+# or regenerate every artifact from the archive
+python run_pipeline.py
+python run_pipeline.py --skip-to M8      # resume from a stage
+
+# interactive dashboard on http://127.0.0.1:8050
+python dash_app.py</code></pre>
+      <p class="small">
+        Expected numbers are listed in <code>docs/EXPECTED_OUTPUTS.md</code> so a correct run can be
+        verified rather than eyeballed.
+      </p>
+      <div class="btnrow" style="margin-top:18px;">
+        <a class="btn" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis" target="_blank" rel="noopener">Repository 鈫?/a>
+        <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/docs/FINAL_REPORT.md" target="_blank" rel="noopener">Full report 鈫?/a>
+        <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/docs/EXPECTED_OUTPUTS.md" target="_blank" rel="noopener">Expected outputs 鈫?/a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><strong>Qu Ying</strong> 路 Data Science, University of Macau 路 CISC7204 portfolio</p>
+    <p>
+      <a href="../index.html">Home</a> &nbsp;路&nbsp;
+      <a href="netflix.html">Netflix project</a> &nbsp;路&nbsp;
+      <a href="../feedback.html">Feedback log</a> &nbsp;路&nbsp;
+      <a href="https://github.com/qyyyyy123" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
