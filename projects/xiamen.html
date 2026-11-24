@@ -126,7 +126,7 @@
             <tr><td>M8</td><td><strong>Measured ω</strong>: tracking episodes → path ÷ chord, bootstrap 1000×, Kruskal–Wallis, Welch ANOVA, HC1-robust OLS</td></tr>
             <tr><td>M9</td><td>OD graph → Louvain, benchmarked against a reproduced paper-style affinity + K-Means++ baseline</td></tr>
             <tr><td>M10</td><td><code>HistGradientBoostingRegressor</code> with leave-one-day-out grouped cross-validation — never a random K-fold, which would leak the future</td></tr>
-            <tr><td>M11</td><td>Interactive Folium map and a Plotly–Dash dashboard</td></tr>
+            <tr><td>M11</td><td>Interactive Folium map, plus two dashboards: Plotly–Dash on the finished artifacts, and a live Kafka → Spark → MySQL → FastAPI replay (see <em>Two dashboards</em> below)</td></tr>
           </tbody>
         </table>
       </div>
@@ -287,6 +287,64 @@ python dash_app.py</code></pre>
         <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/docs/FINAL_REPORT.md" target="_blank" rel="noopener">Full report ↗</a>
         <a class="btn ghost" href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/blob/main/docs/EXPECTED_OUTPUTS.md" target="_blank" rel="noopener">Expected outputs ↗</a>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Interactive</p>
+      <h2>Two dashboards</h2>
+      <p>
+        Two interactive views are built on the same artifacts. Neither is needed to read the
+        analysis, and they answer different questions: one is for exploring the finished result, the
+        other for watching a recorded morning unfold.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Dashboard 1 — finished results</th>
+              <th scope="col">Dashboard 2 — live replay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Question</th>
+              <td>Where is the imbalance, and how large is it?</td>
+              <td>How does it build up, window by window?</td>
+            </tr>
+            <tr>
+              <th scope="row">Data</th>
+              <td>The committed CSVs and JSON in <code>figures/</code></td>
+              <td>Replays <code>raw/Order data/order data.csv</code> as a stream</td>
+            </tr>
+            <tr>
+              <th scope="row">Stack</th>
+              <td>Plotly + Dash</td>
+              <td>Kafka → Spark Structured Streaming → MySQL → FastAPI/WebSocket → Leaflet + ECharts</td>
+            </tr>
+            <tr>
+              <th scope="row">Controls</th>
+              <td>30-minute slot slider, fence-role filter, demand curve, source/sink ranking</td>
+              <td>Play/pause replay, fence filter, live net-flow map, ECharts time series, weather panel</td>
+            </tr>
+            <tr>
+              <th scope="row">Runs on</th>
+              <td><code>python dash_app.py</code> — port 8050</td>
+              <td>Docker, Java 17, Spark 3.5.9 — port 8000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">
+        The replay is a controlled replay of the five recorded mornings — nothing is simulated. The
+        front-end libraries are vendored, so the charts need no CDN. Setup, API list and the
+        architecture notes:
+        <a href="https://github.com/qyyyyy123/xiamen-shared-bicycle-analysis/tree/main/dashboard" target="_blank" rel="noopener">dashboard/README.md</a>.
+        No database password is stored in the repository: it is read from a git-ignored
+        <code>.env</code>.
+      </p>
     </div>
   </section>
 </main>

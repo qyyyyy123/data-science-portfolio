@@ -10,7 +10,7 @@ served directly from the `main` branch by GitHub Pages.
 | File | Contents |
 |---|---|
 | `index.html` | Introduction, skills with evidence, the semester project showcase (research question, two figures, findings, limitation, status), the Netflix project, coursework links, reflection, feedback summary |
-| `projects/xiamen.html` | Deep dive: method table, four figures, all headline numbers, limitations, reproduction route |
+| `projects/xiamen.html` | Deep dive: method table, six figures, the two dashboards, all headline numbers, limitations, reproduction route |
 | `projects/netflix.html` | Earlier project: question, data, three findings, limitation |
 | `feedback.html` | Review log (comment → response → commit), responsible-sharing checklist, accessibility checks |
 | `assets/css/style.css` | The whole design, including responsive breakpoints and print rules |
