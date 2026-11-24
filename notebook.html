@@ -7809,7 +7809,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d89762cd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6123cc07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7851,7 +7851,7 @@ UTC+8.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=914607db">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1d01d40e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7880,7 +7880,7 @@ UTC+8.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9aaa69bd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b527c6e2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7897,7 +7897,7 @@ ids (A4).</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=beebe80d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7ea2595e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7914,7 +7914,7 @@ ids (A4).</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e2d30b06">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4dfb90aa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7930,7 +7930,7 @@ temperature, wind speed and relative humidity.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2856e845">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cfb48afe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7944,7 +7944,7 @@ reproduction check comparable.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=145753c0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=640290ba">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7953,10 +7953,10 @@ reproduction check comparable.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="n">trips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"od_trips.csv"</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">"start_time"</span><span class="p">,</span> <span class="s2">"end_time"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"trips kept: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">od</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"trips kept: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trips</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">trips</span><span class="p">[[</span><span class="s2">"duration_s"</span><span class="p">,</span> <span class="s2">"dist_m"</span><span class="p">,</span> <span class="s2">"speed_mps"</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"median implied speed (m/s):"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">od</span><span class="o">.</span><span class="n">speed_mps</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"median implied speed (m/s):"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">trips</span><span class="o">.</span><span class="n">speed_mps</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">trips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7964,7 +7964,7 @@ reproduction check comparable.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ae8c7af4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=82828863">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7979,7 +7979,7 @@ city. The timestamp-derived duration agrees with the shipped <code>ORDER DURATIO
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62ef8e91">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=803de9d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7998,7 +7998,7 @@ stop).</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22582d15">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e8d5a2dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8016,7 +8016,7 @@ stop).</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6ec16e89">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=457f7055">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8044,7 +8044,7 @@ stop).</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f4cb6db6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89714f62">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8055,7 +8055,7 @@ stop).</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0f362ba">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9104b24">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8073,7 +8073,7 @@ why the full sensitivity table is kept next to the headline number.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fda22dd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfb31c76">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8085,7 +8085,7 @@ may be read causally.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=badab7a9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=024deb01">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8093,19 +8093,30 @@ may be read causally.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="n">weather</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">load_weather</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"hourly rows:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">weather</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="p">[[</span><span class="s2">"temp"</span><span class="p">,</span> <span class="s2">"precip"</span><span class="p">,</span> <span class="s2">"wind"</span><span class="p">,</span> <span class="s2">"humidity"</span><span class="p">,</span> <span class="s2">"visibility"</span><span class="p">]]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"daily precipitation total (mm), control variable only; not causal:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">precip</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<div class="highlight hl-python"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">weather</span> <span class="o">=</span> <span class="n">xc</span><span class="o">.</span><span class="n">load_weather</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"hourly rows:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">weather</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="p">[[</span><span class="s2">"temp"</span><span class="p">,</span> <span class="s2">"precip"</span><span class="p">,</span> <span class="s2">"wind"</span><span class="p">,</span> <span class="s2">"humidity"</span><span class="p">,</span> <span class="s2">"visibility"</span><span class="p">]]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"daily precipitation total (mm), control variable only; not causal:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">weather</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span><span class="o">.</span><span class="n">precip</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="c1"># The notebook is meant to run from the committed artifacts alone; the hourly</span>
+    <span class="c1"># weather table lives in the source archive, which this repository does not</span>
+    <span class="c1"># redistribute. Show the weather columns the committed panel does carry.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"raw/ is not present in this checkout, so the hourly table cannot be read."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The weather columns the committed panel carries are:"</span><span class="p">)</span>
+    <span class="n">panel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FIG_DIR</span> <span class="o">/</span> <span class="s2">"panel_fence_halfhour.csv"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">panel</span><span class="p">[[</span><span class="s2">"temp"</span><span class="p">,</span> <span class="s2">"precip"</span><span class="p">,</span> <span class="s2">"wind"</span><span class="p">,</span> <span class="s2">"humidity"</span><span class="p">,</span> <span class="s2">"visibility"</span><span class="p">]]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"precip is empty in the source archive; weather is a control variable only, not causal"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7fd5dde7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fd70aac4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8119,7 +8130,7 @@ weekday, all weather statements in this project are <strong>associations, not ca
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e172fec">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=763171e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8134,7 +8145,7 @@ eight slots leave about one movement per fence-slot - so the filter keeps only t
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d456ca8a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bc138a24">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8155,7 +8166,7 @@ eight slots leave about one movement per fence-slot - so the filter keeps only t
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa2ea2fc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b654eaae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8169,7 +8180,7 @@ large (standard deviation 0.658).</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0023af2d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6ff3fa1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8181,7 +8192,7 @@ reference implementation.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4e0f310f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=15a538a6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8197,7 +8208,7 @@ reference implementation.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=301acdd0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=57b27805">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8225,7 +8236,7 @@ reference implementation.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=115fc42c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10f6d323">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8236,7 +8247,7 @@ reference implementation.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=365a83a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a89d908b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8252,7 +8263,7 @@ not results of this project.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04054a5a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c4cfddf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8266,7 +8277,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fabfe3bb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6e76f164">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8290,7 +8301,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7de46c4f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ae7ce29d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8318,7 +8329,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18648f18">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f6c3a3c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8328,7 +8339,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8a9de5ab">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4e23be12">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8356,7 +8367,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a828460">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94c14305">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8366,7 +8377,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e4b407a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=97e57567">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8394,7 +8405,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18a4f3f9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ef14e8e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8405,7 +8416,7 @@ so 20 movements still means the sign of the imbalance is estimated from several 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f845fed">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4221ed5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8433,7 +8444,7 @@ fences, while arrivals concentrate on a smaller set of large destination fences 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0adb8b5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f1ece8cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8451,7 +8462,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=699d4a84">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6a809427">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8468,7 +8479,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=56aeb118">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=37f796b3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8492,7 +8503,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1b1d2d44">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=795b86d2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8520,7 +8531,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45cb51ac">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a96e9a27">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8530,7 +8541,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c34ffa14">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=22bbd43a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8558,7 +8569,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7cc90fa9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7b88414">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8568,7 +8579,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=37ce27ca">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=741018d6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8596,7 +8607,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba800837">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1bbf3ea5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8607,7 +8618,7 @@ taken verbatim from the specification.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cba1f9e3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7e8b1ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8630,7 +8641,7 @@ city overstates the distance cost of most trips and understates it for the long 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7b9161d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=05938b2f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8645,7 +8656,7 @@ affinity), which is what the paper's K-Means++ step amounts to.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=180613c1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8bb3f084">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8660,7 +8671,7 @@ affinity), which is what the paper's K-Means++ step amounts to.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b8654718">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ca6c6c52">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8680,7 +8691,7 @@ affinity), which is what the paper's K-Means++ step amounts to.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=851c64fb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5343fefd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8708,7 +8719,7 @@ affinity), which is what the paper's K-Means++ step amounts to.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c2d3427">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0fe822b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8719,7 +8730,7 @@ affinity), which is what the paper's K-Means++ step amounts to.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=30e4c698">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb43cb30">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8741,7 +8752,7 @@ at describing demand similarity.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=56d07d38">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d66a399">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8757,7 +8768,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=91e6a93e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5e3d75ee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8778,7 +8789,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a849d379">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=746ff630">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8806,7 +8817,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a5e8ffd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57ffb90e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8816,7 +8827,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4ad800f5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=44b97115">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8844,7 +8855,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=585e07c2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbde2c03">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8855,7 +8866,7 @@ information into the test set and inflate the score.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=48a0ef3c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5990c9fa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8878,7 +8889,7 @@ morning.</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0dc634aa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fbdd98d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8894,7 +8905,7 @@ map, demand curve and a ranking of the strongest sources and sinks. Start it wit
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=64f03cc3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4acaca39">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8913,7 +8924,7 @@ map, demand curve and a ranking of the strongest sources and sinks. Start it wit
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d0e49ec">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=19f46557">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8984,7 +8995,7 @@ map, demand curve and a ranking of the strongest sources and sinks. Start it wit
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8fd5d3bd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fab4cb3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
